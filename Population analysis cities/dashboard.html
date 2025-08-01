@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            padding: 100px;
+            overflow: hidden; /* Prevents scrollbars from appearing */
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Places the video behind other content */
+            object-fit: cover; /* Ensures the video covers the entire background */
+        }
+        .container {
+            background: rgba(32, 32, 32, 0.7);
+            padding: 100px;
+            border-radius: 180px;
+            display: inline-block;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .option {
+            display: block;
+            margin: 10px;
+            padding: 15px;
+            background: rgba(75, 134, 236, 0.393); /* Button color */
+            color: rgb(7, 7, 7);
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background 0.3s; /* Hover effect */
+        }
+        .option:hover {
+            background: rgb(254, 128, 1); /* Hover color change */
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="WhatsApp Video 2025-03-06 at 23.03.39_f9c4087f.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+        <h1>Welcome to Analysis Dashboard</h1>
+        <a href="comparison.html" class="option">STATE COMPARISON</a>
+        <a href="unployment.html" class="option">UNEMPLOYMENT ANALYSIS</a>
+        <a href="literacy_rate.html" class="option">LITERACY RATE ANALYSIS</a>
+        <a href="EMPLOYMENT.html" class="option">EMPLOYMENT ANALYSIS</a> <!-- New button -->
+    </div>
+</body>
+</html>

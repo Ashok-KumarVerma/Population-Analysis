@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME ANALYSER!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://t4.ftcdn.net/jpg/06/02/56/83/360_F_602568370_1J7AHYoSdaUthk704G8Mv8KOiGfZCH7I.jpg') no-repeat center center/cover;
+            position: relative;
+            flex-direction: column;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .title {
+            position: relative;
+            z-index: 1;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            width: 380px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: white;
+        }
+        .input-group {
+            position: relative;
+            margin: 15px 0;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        .input-group input:focus {
+            border-color: #007bff;
+        }
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .forgot-password {
+            display: block;
+            text-align: right;
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        .login-container button {
+            background: #6c757d;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .login-container button:hover {
+            background: #5a6268;
+        }
+        .or-text {
+            margin: 15px 0;
+            font-size: 14px;
+            color: white;
+        }
+        .secondary-login {
+            background: #6c757d;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .secondary-login:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="title">Population Analysis</div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Enter UserName">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Enter password">
+            <i class="fas fa-eye" onclick="togglePassword()"></i>
+        </div>
+        <a href="#" class="forgot-password">Forgot Password?</a>
+        <button onclick="checkLogin()">Login</button>
+        
+    </div>
+    <script>
+        function checkLogin() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if (username === "LEGENDCODERS" && password === "12345") {
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Invalid username or password!");
+            }
+        }
+        function togglePassword() {
+            let passwordField = document.getElementById("password");
+            let icon = document.querySelector(".input-group i");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>

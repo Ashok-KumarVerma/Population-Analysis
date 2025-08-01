@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Comparison</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-image: url('https://wallpaperaccess.com/full/3919214.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #ffcc00;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+            max-width: 500px;
+            width: 90%;
+        }
+        input, button, label {
+            padding: 12px;
+            margin: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+        }
+        input {
+            width: 250px;
+            text-align: center;
+        }
+        button {
+            background: linear-gradient(45deg, orange, red);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: linear-gradient(45deg, red, orange);
+            transform: scale(1.1);
+        }
+        #graph-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .upload-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            width: 100%;
+        }
+        #graph {
+            display: none;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Compare Two States</h1>
+
+    <div class="container">
+        <div class="upload-container">
+            <label for="fileUpload">Upload CSV File:</label>
+            <input type="file" id="fileUpload">
+            <button onclick="uploadFile()">Upload</button>
+            <p id="uploadStatus"></p>
+        </div>
+
+        <br>
+
+        <input type="text" id="state1" placeholder="Enter First State">
+        <input type="text" id="state2" placeholder="Enter Second State">
+        <button onclick="compareStates()">Compare</button>
+    </div>
+
+    <div id="graph-container">
+        <img id="graph" src="" alt="Comparison Graph">
+    </div>
+
+    
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById("fileUpload");
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please select a file to upload");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            fetch("http://127.0.0.1:5000/upload", { 
+                method: "POST",
+                body: formData 
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert("Error: " + data.error);
+                } else {
+                    alert("File uploaded successfully!");
+                }
+            })
+            .catch(error => {
+                console.error("Upload error:", error);
+                alert("Failed to upload file.");
+            });
+        }
+
+        function compareStates() {
+            let state1 = document.getElementById("state1").value.trim();
+            let state2 = document.getElementById("state2").value.trim();
+
+
+            if (!state1 || !state2) {
+                alert("Please select both states!");
+                return;
+            }
+
+            fetch("http://127.0.0.1:5000/compare_states", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ state1: state1, state2: state2 })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text) });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    alert("Error: " + data.error);
+                } else {
+                    const graphElement = document.getElementById("graph");
+                    graphElement.src = data.graph;
+                    graphElement.style.display = "block";
+                }
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+                alert("Failed to fetch data. Check the server.");
+            });
+        }
+    </script>
+
+</body>
+</html>  

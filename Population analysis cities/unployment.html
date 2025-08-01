@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unemployment Analysis</title>
+    <style>
+        /* Background Image Fix */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.pexels.com/photos/3184457/pexels-photo-3184457.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 40%;
+            margin: auto;
+            margin-top: 10%;
+        }
+
+        h1 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        button {
+            background: #ff4757;
+            color: white;
+            font-size: 16px;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #ff6b81;
+            transform: scale(1.05);
+        }
+
+        .error {
+            color: red;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employment Rate Analysis</h1>
+        <input type="text" id="stateName" placeholder="Enter state name">
+        <button onclick="fetchUnemploymentData()">Analyze</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function fetchUnemploymentData() {
+            const stateName = document.getElementById("stateName").value.trim();
+            if (!stateName) {
+                alert("Please enter a state name.");
+                return;
+            }
+
+            fetch("http://127.0.0.1:5000/analyze_state", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ state_name: stateName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById("output").innerHTML = `<p class='error'>${data.error}</p>`;
+                } else {
+                    document.getElementById("output").innerHTML = `<img src='${data.graph}' alt='Unemployment Analysis Graph'>`;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("output").innerHTML = "<p class='error'>Failed to fetch data. Check the server.</p>";
+            });
+        }
+    </script>
+</body>
+</html>

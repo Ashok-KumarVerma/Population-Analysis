@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employment Analysis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://w0.peakpx.com/wallpaper/241/26/HD-wallpaper-steve-jobs.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100vh;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 300px;
+      width: 100%;
+    }
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+      font-size: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      background: #007BFF;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #output {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 100%;
+      margin-top: 20px;
+      text-align: center;
+      border-left: 5px solid #007BFF;
+      position: relative;
+      left: 20px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Employment Analysis</h1>
+    <input type="text" id="regionName" placeholder="Enter Region Name">
+    <button onclick="analyzeEmployment()">Analyze</button>
+  </div>
+  <div id="output"></div>
+
+  <script>
+    function analyzeEmployment() {
+      const regionName = document.getElementById("regionName").value.trim();
+      if (!regionName) {
+        alert("Please enter a region name!");
+        return;
+      }
+
+      fetch("http://127.0.0.1:5000/analyze_employment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ region_name: regionName })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok: " + response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.error) {
+          document.getElementById("output").innerHTML = `<p class="error">${data.error}</p>`;
+        } else {
+          document.getElementById("output").innerHTML = `
+            <h3>Employment Analysis in ${data.region}</h3>
+            <img src="${data.graph}" alt="Employment Graph">
+          `;
+        }
+      })
+      .catch(error => {
+        console.error("Fetch error:", error);
+        document.getElementById("output").innerHTML = "<p class='error'>Failed to fetch data. Check the server.</p>";
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literacy Rate Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://learningmole.com/wp-content/uploads/2024/03/Literacy-2.webp');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 1100px; /* Increased width */
+            height: 60vh; /* Increased height */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            color: white;
+        }
+
+        .container {
+            width: 48%;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            color: #FFD700;
+            text-align: center;
+            font-size: 28px; /* Larger font */
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            font-size: 18px; /* Bigger text */
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        button {
+            padding: 14px;
+            border: none;
+            background: linear-gradient(45deg, #28a745, #218838);
+            color: white;
+            font-size: 18px; /* Bigger button */
+            cursor: pointer;
+            border-radius: 8px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #218838, #28a745);
+        }
+
+        #output {
+            text-align: center;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 350px; /* Increased image size */
+            margin-top: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <h1>Literacy Rate Analysis</h1>
+            <input type="text" id="stateName" placeholder="Enter State Name">
+            <button onclick="fetchLiteracyRate()">Analyze</button>
+        </div>
+        <div class="container" id="output">
+            <p style="color: rgba(255, 255, 255, 0.7);">Results will appear here...</p>
+        </div>
+    </div>
+
+    <script>
+        function fetchLiteracyRate() {
+            const stateName = document.getElementById("stateName").value.trim();
+            if (!stateName) {
+                alert("Please enter a state name.");
+                return;
+            }
+
+            fetch("http://127.0.0.1:5000/analyze", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ state_name: stateName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById("output").innerHTML = `<p class='error'>${data.error}</p>`;
+                } else {
+                    document.getElementById("output").innerHTML = `
+                        <h3>Literacy Rate in ${data.state}</h3>
+                        <img src='${data.graph}' alt='Literacy Rate Graph'>
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("output").innerHTML = "<p class='error'>Failed to fetch data. Check the server.</p>";
+            });
+        }
+    </script>
+</body>
+</html>

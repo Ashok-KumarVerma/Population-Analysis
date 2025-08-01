@@ -1,0 +1,666 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.25.0114.1153                               -->
+<workbook original-version='18.1' source-build='2024.3.3 (20243.25.0114.1153)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='cities_r2' inline='true' name='federated.01q5wt90ei1en61h4z7md078dfzy' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cities_r2' name='textscan.04v51uo1ium7qh127ckw00r8ww4q'>
+            <connection class='textscan' directory='C:/Users/Krishna/OneDrive/Desktop/Population analysis cities' filename='cities_r2.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.04v51uo1ium7qh127ckw00r8ww4q' name='cities_r2.csv' table='[cities_r2#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='string' name='name_of_city' ordinal='0' />
+            <column datatype='integer' name='state_code' ordinal='1' />
+            <column datatype='string' name='state_name' ordinal='2' />
+            <column datatype='integer' name='dist_code' ordinal='3' />
+            <column datatype='integer' name='population_total' ordinal='4' />
+            <column datatype='integer' name='population_male' ordinal='5' />
+            <column datatype='integer' name='population_female' ordinal='6' />
+            <column datatype='integer' name='0-6_population_total' ordinal='7' />
+            <column datatype='integer' name='0-6_population_male' ordinal='8' />
+            <column datatype='integer' name='0-6_population_female' ordinal='9' />
+            <column datatype='integer' name='literates_total' ordinal='10' />
+            <column datatype='integer' name='literates_male' ordinal='11' />
+            <column datatype='integer' name='literates_female' ordinal='12' />
+            <column datatype='integer' name='sex_ratio' ordinal='13' />
+            <column datatype='integer' name='child_sex_ratio' ordinal='14' />
+            <column datatype='real' name='effective_literacy_rate_total' ordinal='15' />
+            <column datatype='real' name='effective_literacy_rate_male' ordinal='16' />
+            <column datatype='real' name='effective_literacy_rate_female' ordinal='17' />
+            <column datatype='string' name='location' ordinal='18' />
+            <column datatype='integer' name='total_graduates' ordinal='19' />
+            <column datatype='integer' name='male_graduates' ordinal='20' />
+            <column datatype='integer' name='female_graduates' ordinal='21' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name_of_city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name_of_city]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>name_of_city</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_code</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[state_code]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>state_code</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state_name]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>state_name</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dist_code</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[dist_code]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>dist_code</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>population_total</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[population_total]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>population_total</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>population_male</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[population_male]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>population_male</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>population_female</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[population_female]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>population_female</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>0-6_population_total</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[0-6_population_total]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>0-6_population_total</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>0-6_population_male</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[0-6_population_male]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>0-6_population_male</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>0-6_population_female</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[0-6_population_female]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>0-6_population_female</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>literates_total</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[literates_total]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>literates_total</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>literates_male</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[literates_male]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>literates_male</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>literates_female</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[literates_female]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>literates_female</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sex_ratio</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[sex_ratio]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>sex_ratio</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>child_sex_ratio</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[child_sex_ratio]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>child_sex_ratio</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>effective_literacy_rate_total</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[effective_literacy_rate_total]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>effective_literacy_rate_total</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>effective_literacy_rate_male</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[effective_literacy_rate_male]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>effective_literacy_rate_male</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>effective_literacy_rate_female</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[effective_literacy_rate_female]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>effective_literacy_rate_female</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>location</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_graduates</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_graduates]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>total_graduates</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>male_graduates</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[male_graduates]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>male_graduates</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>female_graduates</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[female_graduates]</local-name>
+            <parent-name>[cities_r2.csv]</parent-name>
+            <remote-alias>female_graduates</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='0-6 Population Female' datatype='integer' name='[0-6_population_female]' role='measure' type='quantitative' />
+      <column caption='0-6 Population Male' datatype='integer' name='[0-6_population_male]' role='measure' type='quantitative' />
+      <column caption='0-6 Population Total' datatype='integer' name='[0-6_population_total]' role='measure' type='quantitative' />
+      <column caption='cities_r2.csv' datatype='table' name='[__tableau_internal_object_id__].[cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED]' role='measure' type='quantitative' />
+      <column caption='Child Sex Ratio' datatype='integer' name='[child_sex_ratio]' role='measure' type='quantitative' />
+      <column caption='Dist Code' datatype='integer' name='[dist_code]' role='dimension' type='ordinal' />
+      <column caption='Effective Literacy Rate Female' datatype='real' name='[effective_literacy_rate_female]' role='measure' type='quantitative' />
+      <column caption='Effective Literacy Rate Male' datatype='real' name='[effective_literacy_rate_male]' role='measure' type='quantitative' />
+      <column caption='Effective Literacy Rate Total' datatype='real' name='[effective_literacy_rate_total]' role='measure' type='quantitative' />
+      <column caption='Female Graduates' datatype='integer' name='[female_graduates]' role='measure' type='quantitative' />
+      <column caption='Literates Female' datatype='integer' name='[literates_female]' role='measure' type='quantitative' />
+      <column caption='Literates Male' datatype='integer' name='[literates_male]' role='measure' type='quantitative' />
+      <column caption='Literates Total' datatype='integer' name='[literates_total]' role='measure' type='quantitative' />
+      <column caption='Location' datatype='string' name='[location]' role='dimension' type='nominal' />
+      <column caption='Male Graduates' datatype='integer' name='[male_graduates]' role='measure' type='quantitative' />
+      <column caption='Name Of City' datatype='string' name='[name_of_city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Population Female' datatype='integer' name='[population_female]' role='measure' type='quantitative' />
+      <column caption='Population Male' datatype='integer' name='[population_male]' role='measure' type='quantitative' />
+      <column caption='Population Total' datatype='integer' name='[population_total]' role='measure' type='quantitative' />
+      <column caption='Sex Ratio' datatype='integer' name='[sex_ratio]' role='measure' type='quantitative' />
+      <column caption='State Code' datatype='integer' name='[state_code]' role='dimension' type='ordinal' />
+      <column caption='State Name' datatype='string' name='[state_name]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Total Graduates' datatype='integer' name='[total_graduates]' role='measure' type='quantitative' />
+      <drill-paths>
+        <drill-path name='state_name, name_of_city'>
+          <field>[state_name]</field>
+          <field>[name_of_city]</field>
+        </drill-path>
+      </drill-paths>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='cities_r2.csv' id='cities_r2.csv_5AF727D27CDC4FCA99A46445906130ED'>
+            <properties context=''>
+              <relation connection='textscan.04v51uo1ium7qh127ckw00r8ww4q' name='cities_r2.csv' table='[cities_r2#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='name_of_city' ordinal='0' />
+                  <column datatype='integer' name='state_code' ordinal='1' />
+                  <column datatype='string' name='state_name' ordinal='2' />
+                  <column datatype='integer' name='dist_code' ordinal='3' />
+                  <column datatype='integer' name='population_total' ordinal='4' />
+                  <column datatype='integer' name='population_male' ordinal='5' />
+                  <column datatype='integer' name='population_female' ordinal='6' />
+                  <column datatype='integer' name='0-6_population_total' ordinal='7' />
+                  <column datatype='integer' name='0-6_population_male' ordinal='8' />
+                  <column datatype='integer' name='0-6_population_female' ordinal='9' />
+                  <column datatype='integer' name='literates_total' ordinal='10' />
+                  <column datatype='integer' name='literates_male' ordinal='11' />
+                  <column datatype='integer' name='literates_female' ordinal='12' />
+                  <column datatype='integer' name='sex_ratio' ordinal='13' />
+                  <column datatype='integer' name='child_sex_ratio' ordinal='14' />
+                  <column datatype='real' name='effective_literacy_rate_total' ordinal='15' />
+                  <column datatype='real' name='effective_literacy_rate_male' ordinal='16' />
+                  <column datatype='real' name='effective_literacy_rate_female' ordinal='17' />
+                  <column datatype='string' name='location' ordinal='18' />
+                  <column datatype='integer' name='total_graduates' ordinal='19' />
+                  <column datatype='integer' name='male_graduates' ordinal='20' />
+                  <column datatype='integer' name='female_graduates' ordinal='21' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cities_r2' name='federated.01q5wt90ei1en61h4z7md078dfzy' />
+          </datasources>
+          <datasource-dependencies datasource='federated.01q5wt90ei1en61h4z7md078dfzy'>
+            <column caption='Child Sex Ratio' datatype='integer' name='[child_sex_ratio]' role='measure' type='quantitative' />
+            <column-instance column='[state_name]' derivation='None' name='[none:state_name:nk]' pivot='key' type='nominal' />
+            <column caption='State Name' datatype='string' name='[state_name]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[child_sex_ratio]' derivation='Sum' name='[sum:child_sex_ratio:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='color' value='#e15759' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f28e2b' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.01q5wt90ei1en61h4z7md078dfzy].[sum:child_sex_ratio:qk]</rows>
+        <cols>[federated.01q5wt90ei1en61h4z7md078dfzy].[none:state_name:nk]</cols>
+      </table>
+      <simple-id uuid='{5CE83697-4A93-40CD-B81E-574A9F4D45AC}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.01q5wt90ei1en61h4z7md078dfzy].[none:state_name:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{0E0B28BD-230A-4CDF-B5D7-63D2CEAE836E}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
